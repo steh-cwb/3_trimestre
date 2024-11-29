@@ -15,13 +15,45 @@ const quantidadeUsuarios = Object.values(dados)
         },
         type: 'bar',
         marker: {
-            color: getComputedStyle(document.body).getPropertyValue('--primary-color')
+            color: getCSS('--primary-color')
         }
-        
         ]
-        const grafico = document.createElement('div')
-grafico.className = 'grafico'
+        
+        const layout = {
+            plot_bgcolor: getCSS('--bg-color'),
+            paper_bgcolor: getCSS('--bg-color'),
+            title: {
+                text: 'Redes sociais com mais usuários no mundo',
+                x: 0,
+font: {
+color: getCSS('--primary-color'),
+family: getCSS('--font'),
+size: 30
+},
+xaxis: {
+    title: tickConfig,
+        text: 'nome das redes sociais',
+        font: {
+        color: getCSS('--secundary-color')
 
-document.getElementById('graficos-container').appendChild(grafico)
-Plotly.newPlot(grafico, data)
         }
+        }
+},
+yaxis: {
+    tickfont: tickConfig,
+        color: getCSS('--primary-color'),
+        size: 16,
+        family: getCSS('--font')
+        
+        },
+    title: {
+        text: 'bilhões de usuários ativos',
+        font: {
+        color: getCSS('--secundary-color')
+        }
+        }
+}
+            }
+        
+        const grafico = document.createElement('div').grafico.className = 'grafico'.document.getElementById('graficos-container').appendChild(grafico).Plotly.newPlot(grafico, data,layout)
+        
